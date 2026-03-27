@@ -1,6 +1,6 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import { getAllPhotographers } from "./lib/prisma-db";
+import Card from "@/components/Card/Card";
 
 
 export default async function Home() {
@@ -10,7 +10,9 @@ export default async function Home() {
 
   return (
     <div className={styles.page}>
-      <h1>Récupérations données</h1>
+      <section className={styles.section}>
+        {allPhotographers.map(photographer => (<Card key={photographer.id} {...photographer}/>))} 
+      </section>
     </div>
   );
 }

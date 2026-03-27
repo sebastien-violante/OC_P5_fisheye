@@ -1,0 +1,9 @@
+.filter {
+    display: flex;
+}
+
+.mediaContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
