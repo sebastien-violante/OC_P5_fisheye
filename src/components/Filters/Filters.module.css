@@ -1,0 +1,40 @@
+.filters {
+    position: relative;
+    border-radius: 5px;
+}
+
+.filters .trigger, .filters .listBoxOption {
+    width: 170px;
+    height: 70px;
+    padding-left: 20px;
+    text-align: start;
+    line-height: 70px;
+    background: var(--primaryBackground);
+    color: white;
+    font-weight: 700;
+    font-size: 1.125em;
+}
+
+.filters .listBoxOption {
+    border-top: 1px solid white;
+    cursor: pointer;
+}
+
+.filters .trigger {
+    border: none;
+}
+
+.filters .filtersArrow {
+    background-image: url('/logos/arrow.png');
+    width: 16px;
+    height: 10px;
+    position: absolute;
+    top: 28px;
+    right: 18px;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+
+.rotate {
+   transform: rotate(180deg);
+}

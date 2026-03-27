@@ -1,0 +1,41 @@
+.article {
+    width: 350px;
+    margin-bottom: 20px;
+}
+
+.article .image {
+    border-radius: 5px;
+}
+
+.article .caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+.article .title {
+    font-weight: 400;
+    font-size: 1.5em;
+    color: var(--secondaryTextRed);
+     white-space: nowrap;     
+    overflow: hidden;       
+    text-overflow: ellipsis;  
+}
+
+.article .likes {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.article .numberLikes {
+    font-weight: 500;
+    font-size: 1.5em;
+    color: var(--secondaryTextRed);
+}
+
+.article .likeLogo {
+    width: 17.5px;
+    height: 18.35px;
+}

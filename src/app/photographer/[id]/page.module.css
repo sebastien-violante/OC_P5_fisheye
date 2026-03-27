@@ -1,0 +1,66 @@
+.wrapper {
+    padding: 0 100px;
+    height: 200px;
+}
+
+.banner {
+    background-color: var(--secondaryBackgroundGrey);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    align-items: center;
+    height: 313px;
+}
+
+.banner .ident {
+    display: flex;
+    flex-direction: column;
+}
+
+.banner .name {
+    font-weight: 400;
+    font-size: 4em;
+    color: var(--primaryText);
+    line-height: 83px;
+}
+
+.banner .location {
+    font-weight: 400;
+    font-size: 1.5em;
+    color: var(--secondaryTextRed);
+    line-height: 36px;
+}
+
+.banner .tagline {
+    margin-top: 19;
+    font-weight: 400;
+    font-size: 1.125em;
+    color: var(--secondaryTextGrey);
+}
+
+.banner .contactCta {
+    width: 170px;
+    height: 70px;
+    background-color: var(--primaryBackground);
+    font-weight: 700;
+    font-size: 1.25em;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
+ 
+.banner .pictureContainer {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.banner .portrait {
+    object-fit: cover;
+    transform: scale(1.3);
+    overflow: hidden;
+    object-position: center;
+}
+
+
+
