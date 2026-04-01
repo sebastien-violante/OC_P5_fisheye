@@ -1,0 +1,36 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.lightbox {
+    width: 1240px;
+    height: 900px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.arrow {
+    height: 48px;
+    width: 30px;
+}
+
+.btnCloseLightbox {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: none;
+    border: none;
+}
+
+.picture {
+    object-fit: cover;
+}

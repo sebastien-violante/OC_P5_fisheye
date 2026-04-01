@@ -19,7 +19,7 @@ export default async function Photographer({params}) {
                     <p className={styles.location}>{photographer.city}, {photographer.country}</p>
                     <p className={styles.tagline}>{photographer.tagline}</p>
                 </article>
-                <button className={styles.contactCta}>Contactez-moi</button>
+                <button className={styles.contactCta} tabIndex={0}>Contactez-moi</button>
                 <div className={styles.pictureContainer}>
                     <Image height={200} width={200} className={styles.portait} src={`/pictures/${photographer.portrait}`} alt={photographer.name}/>
                 </div>
