@@ -2,6 +2,7 @@ import styles from './page.module.css'
 import { getPhotographer, getAllMediasForPhotographer } from '@/app/lib/prisma-db'
 import Image from 'next/image'
 import Gallery from '@/components/Gallery/Gallery'
+import ContactZone from '@/components/ContactZone/ContactZone'
 
 export default async function Photographer({params}) {
     
@@ -19,7 +20,7 @@ export default async function Photographer({params}) {
                     <p className={styles.location}>{photographer.city}, {photographer.country}</p>
                     <p className={styles.tagline}>{photographer.tagline}</p>
                 </article>
-                <button className={styles.contactCta} tabIndex={0}>Contactez-moi</button>
+                <ContactZone />
                 <div className={styles.pictureContainer}>
                     <Image height={200} width={200} className={styles.portait} src={`/pictures/${photographer.portrait}`} alt={photographer.name}/>
                 </div>

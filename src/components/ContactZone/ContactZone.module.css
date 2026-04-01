@@ -1,0 +1,10 @@
+.contactCta {
+    width: 170px;
+    height: 70px;
+    background-color: var(--primaryBackground);
+    font-weight: 700;
+    font-size: 1.25em;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
