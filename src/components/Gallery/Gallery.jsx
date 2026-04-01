@@ -4,7 +4,7 @@ import Filters from '../Filters/Filters'
 import MediaSticker from '../MediaSticker/MediaSticker'
 import { useState, useEffect } from 'react'
 import filterMedia from '@/app/filterMedia'
-import Portal from '../Portal/Portal'
+import Portal from '../Portals/LightboxPortal'
 import updateIndex from '@/app/utils/updateIndex'
 
 export default function Gallery({media}) {
