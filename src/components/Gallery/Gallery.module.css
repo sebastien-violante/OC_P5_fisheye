@@ -1,9 +1,21 @@
 .filter {
     display: flex;
+    gap: 25px;
+    align-items: center;
+    position: relative;
+    height: 70px;
 }
 
 .mediaContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btnCloseLightbox {
+    background: transparent;
+    height: 42px;
+    width: 42px;
+    border: none;
 }

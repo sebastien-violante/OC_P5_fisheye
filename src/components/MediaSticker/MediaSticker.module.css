@@ -1,20 +1,26 @@
-.article {
+.mediaContainer {
     width: 350px;
     margin-bottom: 20px;
 }
 
-.article .image {
-    border-radius: 5px;
+.mediaContainer .btnImage {
+    border: none;
+
 }
 
-.article .caption {
+.mediaContainer .image {
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.mediaContainer .caption {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 50px;
 }
 
-.article .title {
+.mediaContainer .title {
     font-weight: 400;
     font-size: 1.5em;
     color: var(--secondaryTextRed);
@@ -23,19 +29,19 @@
     text-overflow: ellipsis;  
 }
 
-.article .likes {
+.mediaContainer .likes {
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-.article .numberLikes {
+.mediaContainer .numberLikes {
     font-weight: 500;
     font-size: 1.5em;
     color: var(--secondaryTextRed);
 }
 
-.article .likeLogo {
+.mediaContainer .likeLogo {
     width: 17.5px;
     height: 18.35px;
 }
