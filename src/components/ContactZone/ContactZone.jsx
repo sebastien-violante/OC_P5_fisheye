@@ -14,7 +14,7 @@ export default function ContactZone({name}) {
     return (
         <>
         <button className={styles.contactCta} tabIndex={0} onClick={() => setFormOpen(prev => !prev)}>Contactez-moi</button>
-        {formOpen && <ContactPortal closeForm={closeForm} formOpen={formOpen}/>}
+        {formOpen && <ContactPortal closeForm={closeForm} formOpen={formOpen} name={name}/>}
         </>
         
     )

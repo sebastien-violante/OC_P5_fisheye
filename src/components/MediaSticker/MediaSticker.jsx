@@ -5,7 +5,7 @@ export default function MediaSticker({medium, openLightBox}) {
     return (
         <figure className={styles.mediaContainer}>
             <button className={styles.btnImage} onClick={() => openLightBox(medium)}>
-                <Image height={300} width={350} className={styles.image} src={`/pictures/${medium.image}`} alt=""/>
+                <Image height={300} width={350} className={styles.image} src={`/pictures/${medium.image}`} alt={medium.title}/>
             </button>
             <div className={styles.caption}>
                 <p className={styles.title}>{medium.title}</p>

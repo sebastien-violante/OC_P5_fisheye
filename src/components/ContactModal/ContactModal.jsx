@@ -45,6 +45,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
                     aria-labelledby='form-title'
                     noValidate
                     onSubmit={handleSubmit}
+                    role="dialog"
                 >
                     <h1 id="form-title" className={styles.formTitle}>Contactez-moi {name}</h1>
                     <div className={styles.formgroup}>
