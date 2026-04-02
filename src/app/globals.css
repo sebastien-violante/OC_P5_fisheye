@@ -71,6 +71,8 @@ html:focus-within {
   --secondaryBackgroundGrey: #FAFAFA;
   --secondaryTextRed: #901C1C;
   --secondaryTextGrey: #525252;
+  --formBackground: #DB8876;
+  --formLabel: #312E2E;
 }
 
 body {

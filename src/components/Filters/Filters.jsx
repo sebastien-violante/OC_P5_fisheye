@@ -1,6 +1,5 @@
 'use client'
 
-import getFocusableElements from '@/app/utils/getFocusableElements'
 import styles from './Filters.module.css'
 import { useState, useRef, useEffect, use } from 'react'
 
