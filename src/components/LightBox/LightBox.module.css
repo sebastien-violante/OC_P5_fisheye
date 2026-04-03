@@ -34,3 +34,8 @@
 .picture {
     object-fit: cover;
 }
+
+.arrowBtn {
+    border: none;
+    background: none;
+}
