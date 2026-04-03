@@ -1,5 +1,7 @@
+'use client'
 import styles from './ContactModal.module.css'
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import getFocusables from '@/app/utils/getFocusables';
 
 export default function ContactModal({name, closeForm, formOpen}) {
     
@@ -19,34 +21,80 @@ export default function ContactModal({name, closeForm, formOpen}) {
 
     const validateData = () => {
         const errors = {}
-        if(!formData.firstname) errors.firstname = "Le champ prénom est requis"
-        if(!formData.name) errors.name = "Le champ nom est requis"
-        if(!formData.email) {
+        if(!formData.firstname.trim()) errors.firstname = "Le champ prénom est requis"
+        if(!formData.name.trim()) errors.name = "Le champ nom est requis"
+        if(!formData.email.trim()) {
             errors.email = "Le champ email est requis"
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
             errors.email = "Le format du mail est invalide"
         }
-        if(!formData.message) errors.message = "Le champ message est requis"
+        if(!formData.message.trim()) errors.message = "Le champ message est requis"
 
         return errors
     }
     
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
         event.preventDefault()
         const errors = validateData()
         setErrors(errors)
+        console.log(formData)
     }
+
+    // Mise en place des éléments de focus et focus initial
+    const refForm = useRef([])
+    const refFocusables = useRef([])
+    useEffect(() => {
+        const focusables = getFocusables(refForm)
+        refFocusables.current = focusables
+        focusables[0].focus()
+    },[])
+
+    const handleKeyDown = (event) => {
+        const focusables = refFocusables.current
+        const first = focusables[0]
+        const last = focusables[focusables.length-1]
+        
+        // sortie modale avec entrée sur croix ou bouton
+       // if(event.key === 'Enter' && (document.activeElement === first || document.activeElement === last)) return
+        
+        // focustrap avec tab
+        if(event.key === 'Tab') {
+            if (event.shiftKey) {
+            // appui sur Tab et sur Shift
+                if (document.activeElement === first) {
+                    event.preventDefault()
+                    last.focus()
+                }
+            } else {
+                // seulement Tab
+                if (document.activeElement === last) {
+                    event.preventDefault()
+                    first.focus()
+                }
+            }
+        }
+        
+        if(event.key === "Escape") closeForm()
+
+        if(event.key === 'Enter') {
+            const tagName = document.activeElement.tagName
+            if(tagName === 'INPUT') event.preventDefault()
+        }
+    }
+
     return (
        <div className={styles.overlay} aria-hidden={formOpen ? false : true}>
-            <div className={styles.contactForm}>
-                <button className={styles.closeModal} onClick={closeForm}><img src="/logos/crossCloseModal.svg" alt="Fermer le formulaire"/></button>
+            <div className={styles.contactForm} >
                 <form 
                     className={styles.form} 
                     aria-labelledby='form-title'
                     noValidate
                     onSubmit={handleSubmit}
                     role="dialog"
+                    onKeyDown={handleKeyDown}  
+                    ref={refForm}  
                 >
+                    <button className={styles.closeModal} onClick={closeForm}><img src="/logos/crossCloseModal.svg" alt="Fermer le formulaire"/></button>
                     <h1 id="form-title" className={styles.formTitle}>Contactez-moi {name}</h1>
                     <div className={styles.formgroup}>
                         <label htmlFor="firstname">Prénom</label>
@@ -100,7 +148,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
                             required
                         ></input>
                         {errors.email && (
-                            <span id="firstname-error" role="alert">
+                            <span id="email-error" role="alert">
                                 {errors.email}
                             </span>
                         )}

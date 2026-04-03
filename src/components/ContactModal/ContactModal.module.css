@@ -57,7 +57,7 @@
     font-size: 30px;
     font-weight: 400;
     color: var(--formLabel);
-    padding: 0 5px;
+    padding: 0 10px;
 }
 
 .formgroup textarea {
@@ -76,9 +76,9 @@
     position: absolute;
     top: 15px;
     right: 0;
-    color: white;
-    font-size: 20px;
-    font-weight: 700;
+    color: black;
+    font-size: 24px;
+    font-weight: 400;
 }
 
 .closeButton {

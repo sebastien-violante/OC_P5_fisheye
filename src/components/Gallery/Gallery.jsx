@@ -16,7 +16,6 @@ export default function Gallery({media}) {
     function handleFilter(item) {
         setMainFilter(item)
     }
-    console.log(media)
     useEffect(() => {
         function updateDisplay(mainFilter) {
             setOtherFilters(filters.filter(item => item !== mainFilter))

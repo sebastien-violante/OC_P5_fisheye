@@ -1,10 +1,14 @@
+'use client'
 import styles from './LightBox.module.css'
 import Image from 'next/image'
+import { useRef } from 'react'
 
 export default function LightBox({closeLightbox, picture, changePicture}) {
 
+    const refOverlay = useRef(ref)
+
     return (
-        <div className={styles.overlay}>
+        <div className={styles.overlay} ref={refOverlay}>
             <div 
                 className={styles.lightbox}
                 role="dialog"
