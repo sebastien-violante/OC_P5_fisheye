@@ -57,7 +57,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
         // sortie modale avec entrée sur croix ou bouton
        // if(event.key === 'Enter' && (document.activeElement === first || document.activeElement === last)) return
         
-        // focustrap avec tab
+        // focustrap
         if(event.key === 'Tab') {
             if (event.shiftKey) {
             // appui sur Tab et sur Shift
