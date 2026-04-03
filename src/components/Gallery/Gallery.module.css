@@ -19,3 +19,29 @@
     width: 42px;
     border: none;
 }
+
+.data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom:0;
+    right:0;
+    height: 60px;
+    width:376px;
+    background: var(--formBackground);
+    padding: 0 30px;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.data .likesCounter {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.data .likesCounter .hearts {
+    height: 18px;
+    width: 18px;
+}

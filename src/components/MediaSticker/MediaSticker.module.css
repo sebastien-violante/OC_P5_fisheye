@@ -39,6 +39,7 @@
     font-weight: 500;
     font-size: 1.5em;
     color: var(--secondaryTextRed);
+    cursor: pointer;
 }
 
 .mediaContainer .likeLogo {

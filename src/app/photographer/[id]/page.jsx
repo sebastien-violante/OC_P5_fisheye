@@ -9,9 +9,7 @@ export default async function Photographer({params}) {
     const { id } = await params
     const photographer = await getPhotographer(Number(id))
     const media = await getAllMediasForPhotographer(Number(id))
-    console.log(photographer)
-    console.log(media)
-        
+            
     return (
         <div className={styles.wrapper}>
             <section className={styles.banner}>
@@ -25,8 +23,7 @@ export default async function Photographer({params}) {
                     <Image height={200} width={200} className={styles.portait} src={`/pictures/${photographer.portrait}`} alt={photographer.name}/>
                 </div>
             </section>
-            <Gallery media={media}/>
-            
+            <Gallery media={media} price={photographer.price}/>
         </div>
     )
 }
