@@ -37,7 +37,7 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
             }
         }
         
-        if(event.key === "Escape") closeLightBox()
+        if(event.key === "Escape") closeLightbox()
 
         if(event.key === 'Enter') {
             const tagName = document.activeElement.tagName
