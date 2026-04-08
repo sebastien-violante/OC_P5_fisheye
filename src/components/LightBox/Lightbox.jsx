@@ -43,6 +43,18 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
             const tagName = document.activeElement.tagName
             if(tagName === 'INPUT') event.preventDefault()
         }
+
+        if(event.key === 'ArrowRight') {
+            event.preventDefault()
+            changePicture('next')
+        }
+
+        if(event.key === 'ArrowLeft') {
+            event.preventDefault()
+            changePicture('previous')
+        }
+        
+        if(event.key === 'ArrowUp' || event.key === 'ArrowDown') event.preventDefault()
     })
 
     
@@ -80,7 +92,22 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
                     />
                 </button>
                 
-                <Image className={styles.picture} width={1050} height={900} src={`/pictures/${picture.image}`} alt={picture.title} />
+
+
+                { !picture.video &&
+                <Image height={900} width={1050} className={styles.image} src={`/pictures/${picture.image}`} alt={picture.title}/>
+                }
+                { picture.video && 
+                <video width="1050px" height="900px" autoPlay muted>
+                    <source src={`/pictures/${picture.video}`} controls  style={{ width: "100%" }} type="video/mp4" />
+                </video>
+                }
+
+
+
+
+
+
                 <button 
                     className={styles.arrowBtn}
                     onClick={() => changePicture('next')}

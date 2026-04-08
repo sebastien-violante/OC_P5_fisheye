@@ -78,7 +78,6 @@ export default function Filters({mainFilter, otherFilters, handleFilter}) {
                             if(event.key==="ArrowDown") {
                                 event.preventDefault()
                                 setActiveIndex(index => (index + 1) % otherFilters.length)
-                                console.log(activeIndex)
                             }
                             if(event.key==="ArrowUp") {
                                 event.preventDefault()

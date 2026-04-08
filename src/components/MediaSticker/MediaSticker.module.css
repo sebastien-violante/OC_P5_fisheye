@@ -39,9 +39,14 @@
     font-weight: 500;
     font-size: 1.5em;
     color: var(--secondaryTextRed);
-    cursor: pointer;
 }
 
+.mediaContainer .likesCta {
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 17.5px;
+}
 .mediaContainer .likeLogo {
     width: 17.5px;
     height: 18.35px;

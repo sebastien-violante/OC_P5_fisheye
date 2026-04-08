@@ -17,9 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${dmSans.variable}`}>
       <body>
-        <header>
-          <Header />
-        </header>
+        <Header />
         <main>
           {children}
         </main>

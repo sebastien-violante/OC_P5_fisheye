@@ -3,8 +3,8 @@ import styles from './Gallery.module.css'
 import Filters from '../Filters/Filters'
 import MediaSticker from '../MediaSticker/MediaSticker'
 import { useState, useEffect, useReducer } from 'react'
-import filterMedia from '@/app/filterMedia'
-import Portal from '../Portals/LightboxPortal'
+import filterMedia from '@/app/utils/filterMedia'
+import LightboxPortal from '../Portals/LightboxPortal'
 import updateIndex from '@/app/utils/updateIndex'
 import reducer from '@/app/utils/reducer'
 
@@ -37,6 +37,7 @@ export default function Gallery({media, price}) {
     const changePicture = (type) => {
         const index = sortedMedia.indexOf(selectedPicture)
         const newIndex = updateIndex(index, type, sortedMedia.length)
+        console.log(`new index : ${newIndex}`)
         setSelectedPicture(sortedMedia[newIndex])
     }
 
@@ -66,24 +67,24 @@ export default function Gallery({media, price}) {
     const initialState = determineLikesState(sortedMedia)
     const [state, dispatch] = useReducer(reducer, initialState)
         
-    const increaseLikes = (id) => {
-        dispatch({payload:id})
+    const updateLikes = (type, id) => {
+        dispatch({type: type, payload:id})
     }
     
     return (
         <>
-            {selectedPicture && <Portal closeLightbox={closeLightbox} picture={selectedPicture} changePicture={changePicture} />}
+            {selectedPicture && <LightboxPortal closeLightbox={closeLightbox} picture={selectedPicture} changePicture={changePicture} />}
             <section className={styles.filter}>
-                <p>Trier par</p>
+                <p className={styles.filterLabel}>Trier par</p>
                 <Filters mainFilter={mainFilter} otherFilters={otherFilters} handleFilter={handleFilter} />
             </section>
             <section className={styles.mediaContainer}>
-                {sortedMedia.map(medium => <MediaSticker key={medium.image} medium={medium} openLightBox={openLightBox} increaseLikes={increaseLikes} likes={state.likesById[medium.id]}/>)}
+                {sortedMedia.map(medium => <MediaSticker key={medium.image} medium={medium} openLightBox={openLightBox} updateLikes={updateLikes} likes={state.likesById[medium.id]}/>)}
             </section>
-            <div className={styles.data}>
+            <section className={styles.data}>
                 <div className={styles.likesCounter}>{state.totalLikes}<img className={styles.hearts} src="/logos/black-heart.svg" alt="coeurs"/></div>
                 <div>{price}&euro;/jour</div>
-            </div>
+            </section>
         </>    
     )
 }

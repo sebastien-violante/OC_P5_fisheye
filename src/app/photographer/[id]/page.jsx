@@ -11,7 +11,7 @@ export default async function Photographer({params}) {
     const media = await getAllMediasForPhotographer(Number(id))
             
     return (
-        <div className={styles.wrapper}>
+        <>
             <section className={styles.banner}>
                 <article className={styles.ident}>
                     <h1 className={styles.name}>{photographer.name}</h1>
@@ -19,11 +19,9 @@ export default async function Photographer({params}) {
                     <p className={styles.tagline}>{photographer.tagline}</p>
                 </article>
                 <ContactZone name={photographer.name} />
-                <div className={styles.pictureContainer}>
-                    <Image height={200} width={200} className={styles.portait} src={`/pictures/${photographer.portrait}`} alt={photographer.name}/>
-                </div>
+                <Image height={200} width={200} className={styles.portrait} src={`/pictures/${photographer.portrait}`} alt={photographer.name}/>
             </section>
             <Gallery media={media} price={photographer.price}/>
-        </div>
+        </>
     )
 }

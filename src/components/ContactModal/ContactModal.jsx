@@ -37,7 +37,15 @@ export default function ContactModal({name, closeForm, formOpen}) {
         event.preventDefault()
         const errors = validateData()
         setErrors(errors)
+        // Visualisation des données en console
         console.log(formData)
+        // Vidage du formulaire
+        setFormData({
+            firstname: "",
+            name: "",
+            email: "",
+            message: ""
+        });
     }
 
     // Mise en place des éléments de focus et focus initial
