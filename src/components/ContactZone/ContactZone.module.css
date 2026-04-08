@@ -8,3 +8,10 @@
     color: white;
     border: none;
 }
+
+@media (max-width: 1100px) {
+  .contactCta {
+    margin-top: 20px;
+    margin-bottom: 20px
+    }
+}

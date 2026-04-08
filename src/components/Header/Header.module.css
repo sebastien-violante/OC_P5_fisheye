@@ -14,13 +14,11 @@
     font-size: 36px;
     font-weight: 400;
 }
-@media (max-width: 730px) {
+@media (max-width: 768px) {
   .header {
     justify-content: center;
   }
-}
-@media (max-width: 520px) {
-  .header {
+ .header {
     padding: 40px 10px;
     text-align: center;
   }

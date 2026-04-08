@@ -80,14 +80,13 @@
     font-weight: 400;
 }
 
-
 @media (max-width: 900px) {
   .card {
     flex: 0 0 calc((100% - 20px) / 2);
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .card {
     flex: 0 0 100%;
   }

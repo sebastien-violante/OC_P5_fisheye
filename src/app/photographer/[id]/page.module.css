@@ -58,5 +58,17 @@
     flex-direction: column;
     height: auto;
   }
+  .ident {
+    align-items: center;
+  }
 }
 
+@media (max-width: 768px) {
+  .banner {
+    margin: 0;
+  }
+  .banner .ident h1, .banner .tagline {
+    text-align: center;
+  }
+  
+}

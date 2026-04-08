@@ -15,7 +15,7 @@ export default function MediaSticker({medium, openLightBox, updateLikes, likes})
         }
     }
     return (
-        <figure className={styles.mediaContainer}>
+        <figure className={styles.mediaWrapper}>
             <button className={styles.btnImage} onClick={() => openLightBox(medium)}>
                 { !medium.video &&
                 <Image height={300} width={350} className={styles.image} src={`/pictures/${medium.image}`} alt={medium.title}/>

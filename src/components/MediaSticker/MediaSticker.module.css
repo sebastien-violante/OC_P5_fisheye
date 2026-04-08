@@ -1,26 +1,28 @@
-.mediaContainer {
+.mediaWrapper {
     width: 350px;
+    min-width: 250px;
     margin-bottom: 20px;
+    margin: auto;
 }
 
-.mediaContainer .btnImage {
+.mediaWrapper .btnImage {
     border: none;
 
 }
 
-.mediaContainer .image {
+.mediaWrapper .image {
     border-radius: 5px;
     object-fit: cover;
 }
 
-.mediaContainer .caption {
+.mediaWrapper .caption {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 50px;
 }
 
-.mediaContainer .title {
+.mediaWrapper .title {
     font-weight: 400;
     font-size: 1.5em;
     color: var(--secondaryTextRed);
@@ -29,25 +31,25 @@
     text-overflow: ellipsis;  
 }
 
-.mediaContainer .likes {
+.mediaWrapper .likes {
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-.mediaContainer .numberLikes {
+.mediaWrapper .numberLikes {
     font-weight: 500;
     font-size: 1.5em;
     color: var(--secondaryTextRed);
 }
 
-.mediaContainer .likesCta {
+.mediaWrapper .likesCta {
     cursor: pointer;
     background: none;
     border: none;
     width: 17.5px;
 }
-.mediaContainer .likeLogo {
+.mediaWrapper .likeLogo {
     width: 17.5px;
     height: 18.35px;
 }

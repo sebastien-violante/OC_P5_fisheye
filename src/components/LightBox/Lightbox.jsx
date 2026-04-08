@@ -75,7 +75,7 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
                     <img src="/logos/closeLightbox.svg" alt="fermer la visionneuse"/>
                 </button>
                 <button 
-                    className={styles.arrowBtn}
+                    className={`${styles.arrowBtn} ${styles.previous}`}
                     onClick={() => changePicture('previous')}
                     onKeyDown={(event) => {
                         if(event.key==="Enter" || event.key===" ") { 
@@ -109,7 +109,7 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
 
 
                 <button 
-                    className={styles.arrowBtn}
+                    className={`${styles.arrowBtn} ${styles.next}`}
                     onClick={() => changePicture('next')}
                     onKeyDown={(event) => {
                         if(event.key==="Enter" || event.key===" ") { 

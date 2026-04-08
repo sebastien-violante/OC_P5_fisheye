@@ -40,3 +40,20 @@
     border: none;
     background: none;
 }
+
+@media (max-width: 1300px) {
+ 
+  .btnCloseLightbox {
+    top: 80px;
+  }
+  .arrowBtn {
+    position: absolute;
+    top: 80px;
+  }
+  .previous {
+    left: 40px;
+  }
+  .next {
+    left: 120px;
+  }
+}
