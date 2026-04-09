@@ -1,0 +1,25 @@
+.notfound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.notfound h1 {
+  color: var(--primaryBackground);
+  font-size: 2em;
+  text-align: center;
+}
+
+.notfound .link {
+  background: var(--formBackground);
+  color: var(--formLabel);
+  font-size: 1em;
+  width: 200px;
+  height: 3em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

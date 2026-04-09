@@ -2,9 +2,10 @@
 import styles from './ContactModal.module.css'
 import { useState, useRef, useEffect } from 'react';
 import getFocusables from '@/app/utils/getFocusables';
-
+import validateForm from '@/app/utils/validateForm';
 export default function ContactModal({name, closeForm, formOpen}) {
     
+    // Initialisation du collecteur de données du formulaire
     const [formData, setFormData] = useState({
             firstname: "",
             name:"",
@@ -12,69 +13,55 @@ export default function ContactModal({name, closeForm, formOpen}) {
             message: "",
         });
     
+    // Initialisation du collecteur d'erreurs
     const [errors, setErrors] = useState({});
 
+    // Remplissage du formData à chaque changement d'input
     const handleChange = (event)  => {
         const { name, value } = event.target 
         setFormData((prev) => ({...prev, [name]: value}))
     }
 
-    const validateData = () => {
-        const errors = {}
-        if(!formData.firstname.trim()) errors.firstname = "Le champ prénom est requis"
-        if(!formData.name.trim()) errors.name = "Le champ nom est requis"
-        if(!formData.email.trim()) {
-            errors.email = "Le champ email est requis"
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            errors.email = "Le format du mail est invalide"
-        }
-        if(!formData.message.trim()) errors.message = "Le champ message est requis"
-
-        return errors
-    }
-    
+    // Gestion du submit, affichage des données et vidage du formulaire  
     const handleSubmit = (event) => {
         event.preventDefault()
-        const errors = validateData()
-        setErrors(errors)
-        // Visualisation des données en console
-        console.log(formData)
-        // Vidage du formulaire
-        setFormData({
-            firstname: "",
-            name: "",
-            email: "",
-            message: ""
-        });
+        const validationErrors = validateForm(formData)
+        setErrors(validationErrors)
+        if(!validationErrors.name && !validationErrors.firstname && !validationErrors.email && !validationErrors.message)
+        {
+            console.log(formData)
+            setFormData({
+                firstname: "",
+                name: "",
+                email: "",
+                message: ""
+            });
+        }
     }
 
     // Mise en place des éléments de focus et focus initial
-    const refForm = useRef([])
-    const refFocusables = useRef([])
+    const refForm = useRef([]) // va chercher la référence 
+    const refFocusables = useRef([]) // permet de stocker les focusables
     useEffect(() => {
+        if(!formOpen) return
         const focusables = getFocusables(refForm)
         refFocusables.current = focusables
-        focusables[0].focus()
-    },[])
+        if(focusables.length > 0) focusables[0].focus()
+    },[formOpen])
 
+    // Gestion des actions clavier 
     const handleKeyDown = (event) => {
         const focusables = refFocusables.current
         const first = focusables[0]
         const last = focusables[focusables.length-1]
-        
-        // sortie modale avec entrée sur croix ou bouton
-       // if(event.key === 'Enter' && (document.activeElement === first || document.activeElement === last)) return
-        
-        // focustrap
+                
         if(event.key === 'Tab') {
             if (event.shiftKey) {
-            // appui sur Tab et sur Shift
                 if (document.activeElement === first) {
                     event.preventDefault()
                     last.focus()
                 }
             } else {
-                // seulement Tab
                 if (document.activeElement === last) {
                     event.preventDefault()
                     first.focus()
@@ -91,18 +78,21 @@ export default function ContactModal({name, closeForm, formOpen}) {
     }
 
     return (
-       <div className={styles.overlay} aria-hidden={formOpen ? false : true}>
-            <div className={styles.contactForm} >
+       <div className={styles.overlay} onClick={closeForm}>
+            <div 
+                className={styles.contactForm}
+                onClick={(event) => event.stopPropagation()} 
+                role="dialog" 
+                aria-modal="true" 
+                aria-labelledby='form-title'>
                 <form 
                     className={styles.form} 
-                    aria-labelledby='form-title'
                     noValidate
                     onSubmit={handleSubmit}
-                    role="dialog"
                     onKeyDown={handleKeyDown}  
                     ref={refForm}  
                 >
-                    <button className={styles.closeModal} onClick={closeForm}><img src="/logos/crossCloseModal.svg" alt="Fermer le formulaire"/></button>
+                    <button type="button" aria-label="Fermer le formulaire" className={styles.closeModal} onClick={closeForm}><img src="/logos/crossCloseModal.svg" alt="Fermer le formulaire"/></button>
                     <h1 id="form-title" className={styles.formTitle}>Contactez-moi {name}</h1>
                     <div className={styles.formgroup}>
                         <label htmlFor="firstname">Prénom</label>
@@ -110,8 +100,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
                             type="text" 
                             name="firstname" 
                             id="firstname"
-                            aria-required="true"
-                            aria-invalid={!!errors.firstname}
+                            aria-invalid={errors.firstname ? "true" : "false"}
                             aria-describedby={errors.firstname ? "firstname-error" : undefined}
                             value={formData.firstname}
                             onChange={handleChange}
@@ -129,8 +118,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
                             type="text"
                             name="name"
                             id="name"
-                            aria-required="true"
-                            aria-invalid={!!errors.name}
+                            aria-invalid={errors.name ? "true" : "false"}
                             aria-describedby={errors.name ? "name-error" : undefined}
                             value={formData.name}
                             onChange={handleChange}
@@ -148,8 +136,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
                             type="email"
                             name="email"
                             id="email"
-                            aria-required="true"
-                            aria-invalid={!!errors.email}
+                            aria-invalid={errors.email ? "true" : "false"}
                             aria-describedby={errors.email ? "email-error" : undefined}
                             value={formData.email}
                             onChange={handleChange}
@@ -167,7 +154,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
                             name="message"
                             id="message"
                             aria-required="true"
-                            aria-invalid={!!errors.message}
+                            aria-invalid={errors.message ? "true" : "false"}
                             aria-describedby={errors.message ? "message-error" : undefined}
                             value={formData.message}
                             onChange={handleChange}

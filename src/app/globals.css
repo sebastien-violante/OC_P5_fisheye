@@ -81,11 +81,8 @@ body {
   margin: auto;
   font-family: var(--font-dm-sans);
 }
-/*
+
 :focus {
   outline: 4px solid yellow;
   outline-offset: 2px;
 }
-*/
-
-

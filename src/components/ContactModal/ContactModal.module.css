@@ -74,10 +74,10 @@
 
 .formgroup span {
     position: absolute;
-    top: 15px;
-    right: 0;
-    color: black;
-    font-size: 24px;
+    bottom: 0;
+    right: 10px;
+    color: red;
+    font-size: 1em;
     font-weight: 400;
 }
 

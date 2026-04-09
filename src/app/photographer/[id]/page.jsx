@@ -3,13 +3,14 @@ import { getPhotographer, getAllMediasForPhotographer } from '@/app/lib/prisma-d
 import Image from 'next/image'
 import Gallery from '@/components/Gallery/Gallery'
 import ContactZone from '@/components/ContactZone/ContactZone'
+import { notFound } from 'next/navigation'
 
 export default async function Photographer({params}) {
     
     const { id } = await params
     const photographer = await getPhotographer(Number(id))
-    const media = await getAllMediasForPhotographer(Number(id))
-            
+    if(!photographer) notFound('ce photographe n existe pas')
+    const media = await getAllMediasForPhotographer(Number(id))  
     return (
         <>
             <section className={styles.banner}>
@@ -21,7 +22,7 @@ export default async function Photographer({params}) {
                 <ContactZone name={photographer.name} />
                 <Image height={200} width={200} className={styles.portrait} src={`/pictures/${photographer.portrait}`} alt={photographer.name}/>
             </section>
-            <Gallery media={media} price={photographer.price}/>
+            {media ? <Gallery media={media} price={photographer.price}/> : <p>{photographer.name} n&apos;a encore rien publié...</p>}
         </>
     )
 }

@@ -92,8 +92,6 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
                     />
                 </button>
                 
-
-
                 { !picture.video &&
                 <Image height={900} width={1050} className={styles.image} src={`/pictures/${picture.image}`} alt={picture.title}/>
                 }
