@@ -1,3 +1,4 @@
+
 export default function validateFrom(formData) {
     const errors = {}
     if(!formData.firstname.trim()) errors.firstname = "Le champ prénom est requis"

@@ -1,3 +1,9 @@
+/**
+ * Renvoie une liste de media triés en fonction du paramètre filter
+ * @param {Array} media - un tableau contenant des media
+ * @returns {String} filter - le filtre à appliquer
+ */
+
 export default function filterMedia(media, filter) {
     switch(filter) {
         case "Date" :

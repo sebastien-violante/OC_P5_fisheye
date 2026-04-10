@@ -36,7 +36,7 @@ export default function MediaSticker({medium, openLightBox, updateLikes, likes})
                 }
                 </button>
             <div className={styles.caption}>
-                <p className={styles.title}>{medium.title}</p>
+                <h2 className={styles.title}>{medium.title}</h2>
                 <div className={styles.likes}>
                     <p className={styles.numberLikes}>{likes}</p>
                     <button className={styles.likesCta} onClick={() => toggleLike(medium.id)}><img className={styles.likeLogo} src="/logos/like.png" alt="likes"></img></button>
