@@ -10,7 +10,6 @@
 
 .contactForm {
     width: 670px;
-    height: 900px;
     background-color: var(--formBackground);
     opacity: 100%;
     position: relative;

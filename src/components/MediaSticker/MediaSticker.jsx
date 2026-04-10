@@ -2,6 +2,7 @@
 import styles from './MediaSticker.module.css'
 import Image from 'next/image'
 import { useState } from 'react'
+import { useFocus } from '@/app/providers/FocusProvider'
 
 export default function MediaSticker({medium, openLightBox, updateLikes, likes}) {
 
@@ -14,14 +15,22 @@ export default function MediaSticker({medium, openLightBox, updateLikes, likes})
             updateLikes(null, id)
         }
     }
+
+    const {focusState, focusDispatch} = useFocus()
+
+    const handleClick = (event) => {
+        focusDispatch({payload: event.currentTarget})
+        openLightBox(medium)
+    }
+
     return (
         <figure className={styles.mediaWrapper}>
-            <button className={styles.btnImage} onClick={() => openLightBox(medium)}>
+            <button className={styles.btnImage} onClick={handleClick}>
                 { !medium.video &&
                 <Image height={300} width={350} className={styles.image} src={`/pictures/${medium.image}`} alt={medium.title}/>
                 }
                 { medium.video && 
-                <video width="100%" height="300px" className={styles.image}>
+                <video width="100%" height="300px" >
                     <source src={`/pictures/${medium.video}`} controls  style={{ width: "100%" }} type="video/mp4" />
                 </video>
                 }
