@@ -1,3 +1,10 @@
+/**
+ * Renvoie un nouvel index calculé à partir de l'ancien index, d'un type d'action et d'une portée
+ * @param {Number} index - l'ancien index
+ * @param {String} type - le type d'action
+ * @param {Number} range - la portée maximale de l'index
+ * @returns 
+ */
 export default function updateIndex(index, type, range) {
     
     switch(type) {

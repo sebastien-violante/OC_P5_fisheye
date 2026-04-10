@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './Filters.module.css'
-import { useState, useRef, useEffect, use } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export default function Filters({mainFilter, otherFilters, handleFilter}) {
 
@@ -40,7 +40,7 @@ export default function Filters({mainFilter, otherFilters, handleFilter}) {
    
 
     return (
-        <div className={styles.filters} ref={refFilters}>
+        <section className={styles.filters} ref={refFilters}>
             <button 
                 className={styles.trigger}
                 aria-haspopup="listbox"
@@ -58,7 +58,7 @@ export default function Filters({mainFilter, otherFilters, handleFilter}) {
             >{mainFilter}</button>
             <div className={`${styles.filtersArrow} ${open? styles.rotate : ""}`}></div>
             
-            <ul className={`${styles.listBox} ${open ? "" : styles.contracted}`} role="listBox">
+            <ul className={`${styles.listBox} ${open ? "" : styles.contracted}`} role="listbox" aria-labelledby="filter-label">
                 { otherFilters.map(item => (
                     <li 
                         tabIndex={open ? 0 : -1}
@@ -95,7 +95,6 @@ export default function Filters({mainFilter, otherFilters, handleFilter}) {
                     </li>
                 ))}
             </ul> 
-        
-        </div>
+        </section>
     )
 }

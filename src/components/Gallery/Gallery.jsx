@@ -37,7 +37,6 @@ export default function Gallery({media, price}) {
     const changePicture = (type) => {
         const index = sortedMedia.indexOf(selectedPicture)
         const newIndex = updateIndex(index, type, sortedMedia.length)
-        console.log(`new index : ${newIndex}`)
         setSelectedPicture(sortedMedia[newIndex])
     }
 
@@ -70,13 +69,13 @@ export default function Gallery({media, price}) {
     const updateLikes = (type, id) => {
         dispatch({type: type, payload:id})
     }
+
     
     return (
         <>
             {selectedPicture && <LightboxPortal closeLightbox={closeLightbox} picture={selectedPicture} changePicture={changePicture} />}
             <section className={styles.filter}>
-                <p className={styles.filterLabel}>Trier par</p>
-                <Filters mainFilter={mainFilter} otherFilters={otherFilters} handleFilter={handleFilter} />
+                <Filters mainFilter={mainFilter} otherFilters={otherFilters} handleFilter={handleFilter}/>
             </section>
             <section className={styles.mediaContainer}>
                 {sortedMedia.map(medium => <MediaSticker key={medium.image} medium={medium} openLightBox={openLightBox} updateLikes={updateLikes} likes={state.likesById[medium.id]}/>)}

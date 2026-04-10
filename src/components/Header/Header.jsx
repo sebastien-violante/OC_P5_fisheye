@@ -12,7 +12,7 @@ export default function Header() {
     return (
         <header className={styles.header}>
             <Link href="/">
-                <Image className={styles.logo} width={200} height={50} src="/logos/logo.svg" alt="Logo du site Fisheye"/>
+                <Image className={styles.logo} width={200} height={50} src="/logos/logo.svg" alt="Fisheye Home page"/>
             </Link>
             {isHomePage && <h1 className={styles.static}>Nos photographes</h1>}
         </header>

@@ -1,6 +1,6 @@
 /**
- * Find the list of focusable elements within an element
- * @returns {array} focusableElements - the list of focusable elements
+ * Trouve les éléments focusables à l'intérieur d'un élément fourni en paramètre
+ * @returns {array} focusableElements - la liste des éléments focusables
  */
 export default function getFocusables(element) {
 

@@ -1,3 +1,9 @@
+/**
+ * Renvoie une copie d'un état qui prend en compte un élément fourni en action
+ * @param {Object} state - le state en mémoire
+ * @param {Object} action - le changement à prendre en compte. Il comprend un type et une payload
+ * @returns {Object} state - un nouvel état
+ */
 export default function reducer(state, action) {
     const id = action.payload
     const type = action.type

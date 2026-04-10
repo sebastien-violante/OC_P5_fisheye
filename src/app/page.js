@@ -8,10 +8,8 @@ export default async function Home() {
   const allPhotographers = await getAllPhotographers()
   if(!allPhotographers) notFound()
   return (
-    <div className={styles.page}>
-      <section className={styles.section}>
-        {allPhotographers.map(photographer => (<Card key={photographer.id} {...photographer}/>))} 
-      </section>
-    </div>
+    <section className={styles.section}>
+      {allPhotographers.map(photographer => (<Card key={photographer.id} {...photographer}/>))} 
+    </section>
   );
 }
