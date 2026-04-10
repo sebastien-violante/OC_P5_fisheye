@@ -69,7 +69,7 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
             >
                 <button 
                     className={styles.btnCloseLightbox}
-                    aria-label="fermer la visionneuse de média"
+                    aria-label="Fermer la visionneuse de média"
                     onClick={() => closeLightbox()}
                 >
                     <img src="/logos/closeLightbox.svg" alt="fermer la visionneuse"/>

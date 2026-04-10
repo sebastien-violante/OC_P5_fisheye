@@ -79,7 +79,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
 
     return (
        <div className={styles.overlay} onClick={closeForm}>
-            <div 
+            <section 
                 className={styles.contactForm}
                 onClick={(event) => event.stopPropagation()} 
                 role="dialog" 
@@ -93,7 +93,8 @@ export default function ContactModal({name, closeForm, formOpen}) {
                     ref={refForm}  
                 >
                     <button type="button" aria-label="Fermer le formulaire" className={styles.closeModal} onClick={closeForm}><img src="/logos/crossCloseModal.svg" alt="Fermer le formulaire"/></button>
-                    <h1 id="form-title" className={styles.formTitle}>Contactez-moi {name}</h1>
+                    <h1 id="form-title" className={styles.formTitle}>Contactez-moi</h1>
+                    <h2 className={styles.formSubTitle}>{name}</h2>
                     <div className={styles.formgroup}>
                         <label htmlFor="firstname">Prénom</label>
                         <input 
@@ -166,9 +167,9 @@ export default function ContactModal({name, closeForm, formOpen}) {
                             </span>
                         )}
                     </div>
-                    <button type="submit" className={styles.closeButton}>Envoyer</button>
+                    <button type="submit" aria-label="Soumettre le formulaire" className={styles.closeButton}>Envoyer</button>
                 </form>
-            </div>
+            </section>
         </div>
     )
 }

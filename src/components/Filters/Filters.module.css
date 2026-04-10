@@ -11,6 +11,11 @@
 
 }
 
+.filterLabel {
+    font-weight: 700;
+    font-size: 18px;
+}
+
 .filters .trigger, .filters .listBoxOption {
     width: 170px;
     height: 70px;

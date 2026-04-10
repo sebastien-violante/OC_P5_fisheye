@@ -2,17 +2,17 @@
     width: 350px;
     min-width: 250px;
     margin-bottom: 20px;
-    margin: auto;
+    gap: 20px;
 }
 
 .mediaWrapper .btnImage {
     border: none;
-
 }
 
 .mediaWrapper .image {
     border-radius: 5px;
     object-fit: cover;
+    overflow: hidden;
 }
 
 .mediaWrapper .caption {
@@ -52,4 +52,11 @@
 .mediaWrapper .likeLogo {
     width: 17.5px;
     height: 18.35px;
+}
+
+@media (max-width: 1000px) {
+  .mediaWrapper {
+    margin: auto;
+  }
+  
 }

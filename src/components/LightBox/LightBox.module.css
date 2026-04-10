@@ -34,6 +34,7 @@
 
 .picture {
     object-fit: cover;
+    object-position: top;
 }
 
 .arrowBtn {
@@ -42,18 +43,31 @@
 }
 
 @media (max-width: 1300px) {
- 
-  .btnCloseLightbox {
-    top: 80px;
-  }
+
   .arrowBtn {
     position: absolute;
-    top: 80px;
+    top: 50%;
+    background: white;
+    border-radius: 5px;
+    width: 40px;
+    
   }
+  .btnCloseLightbox {
+    right: 100px;
+    top: 50%;
+    background: white;
+    border-radius: 5px;
+  }
+
+  .arrowBtn img {
+    margin: auto;
+    height: 40px;
+  }
+
   .previous {
-    left: 40px;
+    right: 200px;
   }
   .next {
-    left: 120px;
+    right: 150px;
   }
 }

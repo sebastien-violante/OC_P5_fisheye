@@ -21,7 +21,7 @@ export default function MediaSticker({medium, openLightBox, updateLikes, likes})
                 <Image height={300} width={350} className={styles.image} src={`/pictures/${medium.image}`} alt={medium.title}/>
                 }
                 { medium.video && 
-                <video width="100%" height="300px">
+                <video width="100%" height="300px" className={styles.image}>
                     <source src={`/pictures/${medium.video}`} controls  style={{ width: "100%" }} type="video/mp4" />
                 </video>
                 }
@@ -29,7 +29,7 @@ export default function MediaSticker({medium, openLightBox, updateLikes, likes})
             <div className={styles.caption}>
                 <p className={styles.title}>{medium.title}</p>
                 <div className={styles.likes}>
-                    <p className={styles.numberLikes} onClick={() => toggleLike(medium.id)}>{likes}</p>
+                    <p className={styles.numberLikes}>{likes}</p>
                     <button className={styles.likesCta} onClick={() => toggleLike(medium.id)}><img className={styles.likeLogo} src="/logos/like.png" alt="likes"></img></button>
                 </div>
             </div>

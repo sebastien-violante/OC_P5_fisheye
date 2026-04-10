@@ -40,6 +40,8 @@ export default function Filters({mainFilter, otherFilters, handleFilter}) {
    
 
     return (
+        <>
+        <label className={styles.filterLabel} aria-label='filter-label'>Trier par</label>
         <section className={styles.filters} ref={refFilters}>
             <button 
                 className={styles.trigger}
@@ -96,5 +98,6 @@ export default function Filters({mainFilter, otherFilters, handleFilter}) {
                 ))}
             </ul> 
         </section>
+        </>
     )
 }

@@ -27,12 +27,15 @@
     right: 35px;
 }
 
-.formTitle {
+.formTitle, .formSubTitle {
     font-weight: 400;
-    font-size: 64px;
+    font-size: 4em;
     max-width: 460px;
     line-height: 83px;
-    margin-bottom: 19px;
+}
+
+.formSubTitle {
+    margin-bottom: 20px;
 }
 
 .formgroup {
@@ -91,4 +94,38 @@
     color: white;
     margin-top: 26px;
     border: none;
+}
+
+@media (max-width: 768px) {
+    .contactForm {
+        width: 96%;
+        height: auto;
+        max-height: 96vh;
+        margin: auto;
+        padding: 15px;
+    }
+    .closeModal {
+        height: 24px;
+        width: 24px;
+        right: 20px;
+    }
+    .formTitle, .formSubTitle {
+        font-size: 2em;
+        line-height:normal;
+    }
+    .formgroup label {
+        font-size: 1em;
+    }
+    .formgroup input  {
+        font-size: 1em;
+        height: 30px;
+    }
+    .formgroup textarea {
+        height: 100px;
+    }
+    .closeButton {
+        height: 40px;
+        width: 120px;
+        font-size: 1em;
+    }
 }
