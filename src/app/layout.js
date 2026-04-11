@@ -8,7 +8,6 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
 });
 
-
 export const metadata = {
   title: "Fisheye",
   description: "FishEye est un site web qui permet aux photographes indépendants de présenter leurs meilleurs travaux",

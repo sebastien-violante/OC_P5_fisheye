@@ -24,7 +24,7 @@ export default async function Photographer({params}) {
                 <ContactZone name={photographer.name} />
                 <Image height={200} width={200} className={styles.portrait} src={`/pictures/${photographer.portrait}`} alt={photographer.name}/>
             </section>
-            {media ? <Gallery media={media} price={photographer.price}/> : <p>{photographer.name} n&apos;a encore rien publié...</p>}
+            {media ? <Gallery media={media} price={photographer.price}/> : <p>Désolé, {photographer.name} n’a encore rien publié !</p>}
         </>
     )
 }

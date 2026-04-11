@@ -7,8 +7,8 @@ import getFocusables from '@/app/utils/getFocusables'
 export default function LightBox({closeLightbox, picture, changePicture}) {
 
     // initialisation des focusables et focus initial
-    const refOverlay = useRef([])
-    const refFocusables = useRef([])
+    const refOverlay = useRef(null)
+    const refFocusables = useRef(null)
     useEffect(() => {
         const focusables = getFocusables(refOverlay)
         refFocusables.current = focusables

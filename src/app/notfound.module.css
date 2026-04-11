@@ -8,13 +8,19 @@
 
 .notfound h1 {
   color: var(--primaryBackground);
+  font-size: 4em;
+  text-align: center;
+  font-weight: 400;
+}
+
+.notfound p {
+  color: var(--primaryBackground);
   font-size: 2em;
   text-align: center;
 }
-
 .notfound .link {
-  background: var(--formBackground);
-  color: var(--formLabel);
+  background: var(--primaryBackground);
+  color: white;
   font-size: 1em;
   width: 200px;
   height: 3em;

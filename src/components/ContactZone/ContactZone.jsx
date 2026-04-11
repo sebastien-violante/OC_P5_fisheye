@@ -22,7 +22,9 @@ export default function ContactZone({name}) {
     return (
         <>
         <button 
-            className={styles.contactCta} onClick={handleClick} aria-label="Contact Me">Contactez-moi</button>
+            className={styles.contactCta} 
+            onClick={handleClick} 
+            aria-label="Contact Me">Contactez-moi</button>
         {formOpen && <ContactPortal closeForm={closeForm} formOpen={formOpen} name={name}/>}
         </>
     )
