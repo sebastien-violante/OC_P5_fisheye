@@ -25,7 +25,7 @@ export default function MediaSticker({medium, openLightBox, updateLikes, likes})
 
     return (
         <figure className={styles.mediaWrapper}>
-            <button className={styles.btnImage} onClick={handleClick}>
+            <button className={styles.btnImage} onClick={handleClick} aria-label="voir la photo ou la vidéo">
                 { !medium.video &&
                 <Image height={300} width={350} className={styles.image} src={`/pictures/${medium.image}`} alt={medium.title}/>
                 }
@@ -34,7 +34,7 @@ export default function MediaSticker({medium, openLightBox, updateLikes, likes})
                     <source src={`/pictures/${medium.video}`} controls  style={{ width: "100%" }} type="video/mp4" />
                 </video>
                 }
-                </button>
+            </button>
             <div className={styles.caption}>
                 <h2 className={styles.title}>{medium.title}</h2>
                 <div className={styles.likes}>

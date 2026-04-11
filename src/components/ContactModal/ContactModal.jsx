@@ -3,6 +3,8 @@ import styles from './ContactModal.module.css'
 import { useState, useRef, useEffect } from 'react';
 import getFocusables from '@/app/utils/getFocusables';
 import validateForm from '@/app/utils/validateForm';
+import handleKeyboard from '@/app/utils/handleKeyboard';
+
 export default function ContactModal({name, closeForm, formOpen}) {
     
     // Initialisation du collecteur de données du formulaire
@@ -29,7 +31,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
         setErrors(validationErrors)
         if(!validationErrors.name && !validationErrors.firstname && !validationErrors.email && !validationErrors.message)
         {
-            console.log(formData)
+            alert(JSON.stringify(formData))
             setFormData({
                 firstname: "",
                 name: "",
@@ -54,7 +56,9 @@ export default function ContactModal({name, closeForm, formOpen}) {
         const focusables = refFocusables.current
         const first = focusables[0]
         const last = focusables[focusables.length-1]
-                
+        
+        handleKeyboard(event, { first, last, onEscape: closeForm })
+        /*
         if(event.key === 'Tab') {
             if (event.shiftKey) {
                 if (document.activeElement === first) {
@@ -74,8 +78,10 @@ export default function ContactModal({name, closeForm, formOpen}) {
         if(event.key === 'Enter') {
             const tagName = document.activeElement.tagName
             if(tagName === 'INPUT') event.preventDefault()
-        }
+        }*/
     }
+
+    
 
     return (
        <div className={styles.overlay} onClick={closeForm}>

@@ -8,7 +8,6 @@ export default function ContactZone({name}) {
 
     const [formOpen, setFormOpen] = useState(false)
     const {focusState, focusDispatch} = useFocus()
-    console.log(focusState)
     const closeForm = () => {
         setFormOpen(false)
         focusState.element.focus()

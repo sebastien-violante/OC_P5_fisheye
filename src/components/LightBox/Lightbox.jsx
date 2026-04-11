@@ -3,6 +3,7 @@ import styles from './LightBox.module.css'
 import Image from 'next/image'
 import { useRef, useEffect } from 'react'
 import getFocusables from '@/app/utils/getFocusables'
+import handleKeyboard from '@/app/utils/handleKeyboard'
 
 export default function LightBox({closeLightbox, picture, changePicture}) {
 
@@ -20,41 +21,21 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
         const focusables = refFocusables.current
         const first = focusables[0]
         const last = focusables[focusables.length -1]
-
-        if(event.key === 'Tab') {
-            if (event.shiftKey) {
-            // appui sur Tab et sur Shift
-                if (document.activeElement === first) {
+        
+        handleKeyboard(event, 
+            {first, last, onEscape: closeLightbox, extraHandlers: {
+                ArrowRight: (event) => {
                     event.preventDefault()
-                    last.focus()
-                }
-            } else {
-                // seulement Tab
-                if (document.activeElement === last) {
+                    changePicture('next')
+                },
+                ArrowLeft: (event) => {
                     event.preventDefault()
-                    first.focus()
-                }
+                    changePicture('previous')
+                },
+                ArrowUp: (event) => event.preventDefault(),
+                ArrowDown: (evente) => event.preventDefault(),
             }
-        }
-        
-        if(event.key === "Escape") closeLightbox()
-
-        if(event.key === 'Enter') {
-            const tagName = document.activeElement.tagName
-            if(tagName === 'INPUT') event.preventDefault()
-        }
-
-        if(event.key === 'ArrowRight') {
-            event.preventDefault()
-            changePicture('next')
-        }
-
-        if(event.key === 'ArrowLeft') {
-            event.preventDefault()
-            changePicture('previous')
-        }
-        
-        if(event.key === 'ArrowUp' || event.key === 'ArrowDown') event.preventDefault()
+        })
     })
 
     
