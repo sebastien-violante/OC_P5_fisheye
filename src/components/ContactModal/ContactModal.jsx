@@ -58,27 +58,6 @@ export default function ContactModal({name, closeForm, formOpen}) {
         const last = focusables[focusables.length-1]
         
         handleKeyboard(event, { first, last, onEscape: closeForm })
-        /*
-        if(event.key === 'Tab') {
-            if (event.shiftKey) {
-                if (document.activeElement === first) {
-                    event.preventDefault()
-                    last.focus()
-                }
-            } else {
-                if (document.activeElement === last) {
-                    event.preventDefault()
-                    first.focus()
-                }
-            }
-        }
-        
-        if(event.key === "Escape") closeForm()
-
-        if(event.key === 'Enter') {
-            const tagName = document.activeElement.tagName
-            if(tagName === 'INPUT') event.preventDefault()
-        }*/
     }
 
     
