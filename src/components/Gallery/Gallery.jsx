@@ -8,6 +8,7 @@ import LightboxPortal from '../Portals/LightboxPortal'
 import updateIndex from '@/app/utils/updateIndex'
 import likesReducer from '@/app/utils/likesReducer'
 import { useFocus } from '@/app/providers/FocusProvider'
+import GlobalLikes from '../GlobalLikes/GlobalLikes'
 
 export default function Gallery({media, price}) {
     
@@ -81,10 +82,7 @@ export default function Gallery({media, price}) {
             <section className={styles.mediaContainer}>
                 {sortedMedia.map(medium => <MediaSticker key={medium.image} medium={medium} openLightBox={openLightBox} updateLikes={updateLikes} likes={likeState.likesById[medium.id]}/>)}
             </section>
-            <section className={styles.data}>
-                <div className={styles.likesCounter}>{likeState.totalLikes}<img className={styles.hearts} src="/logos/black-heart.svg" alt="coeurs"/></div>
-                <div>{price}&euro;/jour</div>
-            </section>
+            <GlobalLikes likes={likeState.totalLikes} price={price}/>
         </>    
     )
 }

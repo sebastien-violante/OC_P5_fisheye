@@ -1,8 +1,11 @@
+'use client'
 import styles from './Card.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Card({name, city, country, tagline, price, portrait, id}) {
+
+    
     return (
         <article className={styles.card}>
             <Link className={styles.portrait} href={`/photographer/${id}`}>

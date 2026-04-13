@@ -16,7 +16,6 @@ export function StateProvider({children}) {
     const contextValue = useMemo(() => {
         return { focusState, focusDispatch }
     }, [focusState])
-
     return (
         <FocusContext.Provider value={contextValue}>
             {children}

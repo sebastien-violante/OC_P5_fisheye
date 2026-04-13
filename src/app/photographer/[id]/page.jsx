@@ -9,10 +9,11 @@ export default async function Photographer({params}) {
     
     const { id } = await params
     const photographer = await getPhotographer(Number(id))
-    if(!photographer) notFound('ce photographe n existe pas')
+    
+    if(!photographer) notFound()
     const media = await getAllMediasForPhotographer(Number(id))  
 
-        
+    
     return (
         <>
             <section className={styles.banner}>

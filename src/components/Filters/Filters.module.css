@@ -60,3 +60,7 @@
     height: 0px;
     overflow: hidden;
 }
+
+.listBoxOption[aria-selected="true"] {
+  color: yellow;
+}
