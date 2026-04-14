@@ -1,5 +1,4 @@
 'use client'
-
 import styles from './Filters.module.css'
 import { useState, useRef, useEffect } from 'react'
 
@@ -7,7 +6,6 @@ export default function Filters({ mainFilter, otherFilters, handleFilter }) {
 
     const [open, setOpen] = useState(false)
     const [activeIndex, setActiveIndex] = useState(-1)
-
     const refFilters = useRef(null)
     const listRef = useRef(null)
     const buttonRef = useRef(null)
@@ -50,12 +48,10 @@ export default function Filters({ mainFilter, otherFilters, handleFilter }) {
             event.preventDefault()
             setActiveIndex(i => (i + 1) % otherFilters.length)
         }
-
         if (event.key === "ArrowUp") {
             event.preventDefault()
             setActiveIndex(i => (i - 1 + otherFilters.length) % otherFilters.length)
         }
-
         if (event.key === "Enter" || event.key === " ") {
             event.preventDefault()
             if (activeIndex >= 0) {
@@ -63,7 +59,6 @@ export default function Filters({ mainFilter, otherFilters, handleFilter }) {
                 setOpen(false)
             }
         }
-
         if (event.key === "Escape" || event.key === "Tab") {
             setOpen(false)
         }
@@ -91,9 +86,7 @@ export default function Filters({ mainFilter, otherFilters, handleFilter }) {
                 >
                     {mainFilter}
                 </button>
-
                 <div className={`${styles.filtersArrow} ${open ? styles.rotate : ""}`}></div>
-
                 <ul
                     ref={listRef}
                     className={`${styles.listBox} ${open ? "" : styles.contracted}`}

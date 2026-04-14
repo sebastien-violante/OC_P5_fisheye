@@ -13,7 +13,6 @@ export default async function Photographer({params}) {
     if(!photographer) notFound()
     const media = await getAllMediasForPhotographer(Number(id))  
 
-    
     return (
         <>
             <section className={styles.banner}>

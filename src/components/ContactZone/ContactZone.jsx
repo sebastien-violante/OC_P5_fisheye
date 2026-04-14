@@ -12,7 +12,6 @@ export default function ContactZone({name}) {
         setFormOpen(false)
         focusState.element.focus()
     }
-
     const handleClick = (event) => {
         focusDispatch({payload: event.currentTarget})
         setFormOpen(prev => !prev)

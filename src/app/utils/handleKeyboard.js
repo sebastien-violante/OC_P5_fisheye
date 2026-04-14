@@ -2,8 +2,7 @@ export default function handleKeyboard(event, options) {
 
     const { first, last, onEscape, extraHandlers = {} } = options
     const active = document.activeElement
-
-     const handlers = {
+    const handlers = {
         Tab: (event) => {
             if (event.shiftKey && active === first) {
                 event.preventDefault()
@@ -13,17 +12,14 @@ export default function handleKeyboard(event, options) {
                 first.focus()
             }
         },
-
         Escape: () => {
             onEscape?.()
         },
-
         Enter: (event) => {
             if (active.tagName === 'INPUT') {
                 event.preventDefault()
             }
         },
-
         ...extraHandlers
     }
 

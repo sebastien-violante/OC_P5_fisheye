@@ -60,8 +60,6 @@ export default function ContactModal({name, closeForm, formOpen}) {
         handleKeyboard(event, { first, last, onEscape: closeForm })
     }
 
-    
-
     return (
        <div className={styles.overlay} onClick={closeForm}>
             <section 

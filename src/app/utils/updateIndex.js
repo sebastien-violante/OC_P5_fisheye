@@ -5,6 +5,7 @@
  * @param {Number} range - la portée maximale de l'index
  * @returns 
  */
+
 export default function updateIndex(index, type, range) {
     
     switch(type) {

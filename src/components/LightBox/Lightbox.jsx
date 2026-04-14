@@ -38,8 +38,6 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
         })
     })
 
-    
-
     return (
         <div className={styles.overlay} ref={refOverlay} onKeyDown={handleKeyDown}  >
             <div 
@@ -69,10 +67,8 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
                     src="/logos/leftArrow.svg" 
                     className={styles.arrow} 
                     alt="image précédente" 
-                    
                     />
                 </button>
-                
                 { !picture.video &&
                 <Image height={900} width={1050} className={styles.image} src={`/pictures/${picture.image}`} alt={picture.title}/>
                 }
@@ -81,12 +77,6 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
                     <source src={`/pictures/${picture.video}`} controls  style={{ width: "100%" }} type="video/mp4" />
                 </video>
                 }
-
-
-
-
-
-
                 <button 
                     className={`${styles.arrowBtn} ${styles.next}`}
                     onClick={() => changePicture('next')}
@@ -103,7 +93,6 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
                     alt="image suivante" 
                     />
                 </button>
-                
             </div>
         </div>
     )

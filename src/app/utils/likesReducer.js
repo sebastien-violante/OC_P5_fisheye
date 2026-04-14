@@ -4,6 +4,7 @@
  * @param {Object} action - le changement à prendre en compte. Il comprend un type et une payload
  * @returns {Object} likeState - un nouvel état
  */
+
 export default function likesReducer(likeState, action) {
     const id = action.payload
     const type = action.type

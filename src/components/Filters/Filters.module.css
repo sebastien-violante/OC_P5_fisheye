@@ -39,6 +39,7 @@
 
 .filters .trigger {
     border: none;
+    cursor: pointer;
 }
 
 .filters .filtersArrow {

@@ -1,15 +1,13 @@
 'use client'
-
 import { createContext, useContext, useReducer, useMemo } from "react"
 import focusReducer from "../utils/focusReducer"
 
 const FocusContext = createContext()
-
 const initialFocus = {
     focus: {element: null}
 }
 
-export function StateProvider({children}) {
+export function FocusProvider({children}) {
     const [focusState, focusDispatch] = useReducer(focusReducer, initialFocus)
 
     // Garde en mémoire l'objet tant que le "state" ne change pas

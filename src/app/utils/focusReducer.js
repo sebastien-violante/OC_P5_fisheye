@@ -3,6 +3,7 @@
  * @param {Object} state le state actuel
  * @returns {Object} state - un nouvel état
  */
+
 export default function focusReducer(state, action) {
     return {
         ...state, element: action.payload

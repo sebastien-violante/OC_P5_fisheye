@@ -18,6 +18,7 @@
   font-size: 2em;
   text-align: center;
 }
+
 .notfound .link {
   background: var(--primaryBackground);
   color: white;
