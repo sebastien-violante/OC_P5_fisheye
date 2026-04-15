@@ -7,6 +7,7 @@ import { useFocus } from '@/app/providers/FocusProvider'
 export default function MediaSticker({medium, openLightBox, updateLikes, likes}) {
 
     const [liked, setLiked] = useState(true)
+    
     const toggleLike = (id) => {
         setLiked(prev => !prev)
         if(liked) {
