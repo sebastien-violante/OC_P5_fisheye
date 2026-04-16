@@ -7,17 +7,27 @@ import handleKeyboard from '@/app/utils/handleKeyboard';
 
 export default function ContactModal({name, closeForm, formOpen}) {
     
+//// REFERENCES ////////////////////////////////////////
+
+    // Mise en place des éléments de focus et focus initial
+    const refForm = useRef([]) // va chercher la référence 
+    const refFocusables = useRef([]) // permet de stocker les focusables
+    
+/////  STATES /////////////////////////////////////////
+    
     // Initialisation du collecteur de données du formulaire
     const [formData, setFormData] = useState({
-            firstname: "",
-            name:"",
-            email: "",
-            message: "",
-        });
-    
+        firstname: "",
+        name:"",
+        email: "",
+        message: "",
+    });
+
     // Initialisation du collecteur d'erreurs
     const [errors, setErrors] = useState({});
 
+//// HANDLERS ////////////////////////////////////////
+    
     // Remplissage du formData à chaque changement d'input
     const handleChange = (event)  => {
         const { name, value } = event.target 
@@ -41,16 +51,6 @@ export default function ContactModal({name, closeForm, formOpen}) {
         }
     }
 
-    // Mise en place des éléments de focus et focus initial
-    const refForm = useRef([]) // va chercher la référence 
-    const refFocusables = useRef([]) // permet de stocker les focusables
-    useEffect(() => {
-        if(!formOpen) return
-        const focusables = getFocusables(refForm)
-        refFocusables.current = focusables
-        if(focusables.length > 0) focusables[0].focus()
-    },[formOpen])
-
     // Gestion des actions clavier 
     const handleKeyDown = (event) => {
         const focusables = refFocusables.current
@@ -59,6 +59,16 @@ export default function ContactModal({name, closeForm, formOpen}) {
         
         handleKeyboard(event, { first, last, onEscape: closeForm })
     }
+
+//// EFFECTS ////////////////////////////////////////
+
+    useEffect(() => {
+        if(!formOpen) return
+        const focusables = getFocusables(refForm)
+        refFocusables.current = focusables
+        if(focusables.length > 0) focusables[0].focus()
+    },[formOpen])
+
 
     return (
        <div className={styles.overlay} onClick={closeForm}>

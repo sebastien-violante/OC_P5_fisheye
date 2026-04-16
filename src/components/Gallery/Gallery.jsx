@@ -2,7 +2,7 @@
 import styles from './Gallery.module.css'
 import Filters from '../Filters/Filters'
 import MediaSticker from '../MediaSticker/MediaSticker'
-import { useState, useEffect, useReducer } from 'react'
+import { useState, useEffect, useMemo, useReducer } from 'react'
 import filterMedia from '@/app/utils/filterMedia'
 import LightboxPortal from '../Portals/LightboxPortal'
 import updateIndex from '@/app/utils/updateIndex'
@@ -12,25 +12,27 @@ import GlobalLikes from '../GlobalLikes/GlobalLikes'
 
 export default function Gallery({media, price}) {
     
-    //////////// CONSTANTES ////////////////////////
+//////////// CONSTANTES ////////////////////////
 
     const filters = ['Popularité','Date', 'Titre']
 
-    //////////// STATES ////////////////////////////
+//////////// STATES ////////////////////////////
 
     const [mainFilter, setMainFilter] = useState('Popularité')
     const [selectedPicture, setSelectedPicture] = useState(null)
     const {focusState} = useFocus()
-    
-    //////////// DERIVED STATE ////////////////////
+    console.log(focusState.element)
+//////////// DERIVED STATE ////////////////////
 
     const otherFilters = filters.filter(item => item !== mainFilter)
-    const sortedMedia = filterMedia(media, mainFilter)
+    const sortedMedia = useMemo(() => {
+        return filterMedia(media, mainFilter)
+    }, [media, mainFilter])
    
-    /////////// HANDLERS  ///////////////////////////
+/////////// HANDLERS  ///////////////////////////
 
     // Force selectedPicture à true pour permettre l'affichage du portail
-     const openLightBox = (medium) => {
+    const openLightBox = (medium) => {
         setSelectedPicture(medium)
     }
 
@@ -57,17 +59,17 @@ export default function Gallery({media, price}) {
         dispatchLikes({type: type, payload:id})
     }
 
-    ///////////  EFFECTS ///////////////////////////
+///////////  EFFECTS ///////////////////////////
 
     useEffect(() => {
-            const handleKeyDown = (event) => {
-                if(event.key === "Escape") closeLightbox()
-            }
-            window.addEventListener('keydown', handleKeyDown)
-            return () => window.removeEventListener('keydown' , handleKeyDown)
-        }, [])
+        const handleKeyDown = (event) => {
+            if(event.key === "Escape") closeLightbox()
+        }
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown' , handleKeyDown)
+    }, [])
     
-    //////////////// REDUCER  ////////////////////////////
+//////////////// REDUCER  ////////////////////////////
     
     const determineLikesState = (media) => {
         const likesById = {}
@@ -80,6 +82,7 @@ export default function Gallery({media, price}) {
 
         return {likesById, totalLikes}
     }
+
     const [likeState, dispatchLikes] = useReducer(likesReducer, media, determineLikesState)
     
     return (

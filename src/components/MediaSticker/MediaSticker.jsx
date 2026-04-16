@@ -6,8 +6,17 @@ import { useFocus } from '@/app/providers/FocusProvider'
 
 export default function MediaSticker({medium, openLightBox, updateLikes, likes}) {
 
-    const [liked, setLiked] = useState(true)
+///// HOOKS  ///////////////////////////////////////////////
+
+    const {focusDispatch} = useFocus()
+
+///// STATES  ///////////////////////////////////////////////
     
+    const [liked, setLiked] = useState(true)
+
+///// HANDLERS  ///////////////////////////////////////////////
+
+    // Déclenche l'augmentation ou la diminution des likes
     const toggleLike = (id) => {
         setLiked(prev => !prev)
         if(liked) {
@@ -17,8 +26,7 @@ export default function MediaSticker({medium, openLightBox, updateLikes, likes})
         }
     }
 
-    const {focusState, focusDispatch} = useFocus()
-
+    // Déclenche l'ouverture de la lightbox après avoir enregistré activé le focusReducer pour enregistrer le dernier media cliqué
     const handleClick = (event) => {
         focusDispatch({payload: event.currentTarget})
         openLightBox(medium)

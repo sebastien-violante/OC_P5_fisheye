@@ -4,14 +4,22 @@ import { useState, useRef, useEffect } from 'react'
 
 export default function Filters({ mainFilter, otherFilters, handleFilter }) {
 
-    const [open, setOpen] = useState(false)
-    const [activeIndex, setActiveIndex] = useState(-1)
+//// REFS  ////////////////////////////////////////
+    
     const refFilters = useRef(null)
     const listRef = useRef(null)
     const buttonRef = useRef(null)
 
+//// STATES  ////////////////////////////////////////
+
+    const [open, setOpen] = useState(false)
+    const [activeIndex, setActiveIndex] = useState(-1)
     // Initialisation d'une variable pour permettre un focus initial sur le header
     const [firstFocus, setfirstFocus] = useState(true)
+  
+//// EFFECTS  ////////////////////////////////////////
+
+    // Permet de débloquer le focus du logo Fisheye
     useEffect(() => {
         setfirstFocus(false)
     }, [])
@@ -42,6 +50,8 @@ export default function Filters({ mainFilter, otherFilters, handleFilter }) {
         }
     }, [open])
 
+//// HANDLERS  ////////////////////////////////////////
+  
     const handleKeyDown = (event) => {
 
         if (event.key === "ArrowDown") {

@@ -5,8 +5,8 @@
 
 export default function getFocusables(element) {
 
-        const focusableSelectors = 'button, [href], input, select, textarea'
-        const focusables = Array.from(element.current.querySelectorAll(focusableSelectors))
+    const focusableSelectors = 'button, [href], input, select, textarea'
+    const focusables = Array.from(element.current.querySelectorAll(focusableSelectors))
         
-        return focusables
-    }
+    return focusables
+}

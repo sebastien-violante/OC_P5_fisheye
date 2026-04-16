@@ -7,16 +7,23 @@ import handleKeyboard from '@/app/utils/handleKeyboard'
 
 export default function LightBox({closeLightbox, picture, changePicture}) {
 
-    // initialisation des focusables et focus initial
+///// REFS  ///////////////////////////////////////////////
+
+    // Initialisation des focusables et focus initial
     const refOverlay = useRef(null)
     const refFocusables = useRef(null)
+
+///// EFFECTS  ///////////////////////////////////////////////
+
     useEffect(() => {
         const focusables = getFocusables(refOverlay)
         refFocusables.current = focusables
         focusables[0].focus()
     },[])
 
-    // gestion des actions clavier
+///// HANDLERS  ///////////////////////////////////////////////
+
+    // Gestion des actions clavier
     const handleKeyDown = ((event) => {
         const focusables = refFocusables.current
         const first = focusables[0]

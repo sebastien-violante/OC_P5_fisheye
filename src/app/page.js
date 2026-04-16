@@ -8,8 +8,8 @@ export default async function Home() {
   if(!allPhotographers) notFound()
   
   return (
-      <section className={styles.section}>
-        {allPhotographers.map(photographer => (<Card key={photographer.id} {...photographer}/>))} 
-      </section>    
+    <section className={styles.section}>
+      {allPhotographers.map(photographer => (<Card key={photographer.id} {...photographer}/>))} 
+    </section>    
   );
 }
