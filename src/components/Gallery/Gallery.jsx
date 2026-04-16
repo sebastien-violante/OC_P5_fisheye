@@ -39,7 +39,7 @@ export default function Gallery({media, price}) {
     // Ferme le lightbox et remet le focus sur le dernier média cliqué avant ouverture
     const closeLightbox = () => {
         setSelectedPicture(null)
-        focusState.element.focus()
+        focusState.element?.focus()
     }
 
     // Change l'image sélectionnée en fonction du bouton sélectionné et la retransmet au portail
