@@ -31,8 +31,8 @@ export default function MediaSticker({medium, openLightBox, updateLikes, likes})
                 <Image height={300} width={350} className={styles.image} src={`/pictures/${medium.image}`} alt={medium.title}/>
                 }
                 { medium.video && 
-                <video width="100%" height="300px" >
-                    <source src={`/pictures/${medium.video}`} controls  style={{ width: "100%" }} type="video/mp4" />
+                <video height={300} width={350} >
+                    <source src={`/pictures/${medium.video}`}  type="video/mp4" />
                 </video>
                 }
             </button>
