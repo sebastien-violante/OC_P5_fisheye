@@ -11,23 +11,21 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
 
     // Initialisation des focusables et focus initial
     const refOverlay = useRef(null)
-    const refFocusables = useRef(null)
+    const refFocusables = useRef([])
 
 ///// EFFECTS  ///////////////////////////////////////////////
 
     useEffect(() => {
-        const focusables = getFocusables(refOverlay)
-        refFocusables.current = focusables
-        focusables[0].focus()
+        refFocusables.current = getFocusables(refOverlay)
+        refFocusables.current[0].focus()
     },[])
 
 ///// HANDLERS  ///////////////////////////////////////////////
 
     // Gestion des actions clavier
     const handleKeyDown = ((event) => {
-        const focusables = refFocusables.current
-        const first = focusables[0]
-        const last = focusables[focusables.length -1]
+        const first = refFocusables.current[0]
+        const last = refFocusables.current[refFocusables.current.length -1]
         
         handleKeyboard(event, 
             {first, last, onEscape: closeLightbox, extraHandlers: {
@@ -40,7 +38,7 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
                     changePicture('previous')
                 },
                 ArrowUp: (event) => event.preventDefault(),
-                ArrowDown: (evente) => event.preventDefault(),
+                ArrowDown: (event) => event.preventDefault(),
             }
         })
     })
@@ -80,8 +78,8 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
                 <Image height={900} width={1050} className={styles.image} src={`/pictures/${picture.image}`} alt={picture.title}/>
                 }
                 { picture.video && 
-                <video width="1050px" height="900px" autoPlay muted>
-                    <source src={`/pictures/${picture.video}`} controls  style={{ width: "100%" }} type="video/mp4" />
+                <video width={1050} height={900} autoPlay muted>
+                    <source src={`/pictures/${picture.video}`}  type="video/mp4" />
                 </video>
                 }
                 <button 

@@ -10,21 +10,23 @@ import likesReducer from '@/app/utils/likesReducer'
 import { useFocus } from '@/app/providers/FocusProvider'
 import GlobalLikes from '../GlobalLikes/GlobalLikes'
 
-export default function Gallery({media, price}) {
-    
-//////////// CONSTANTES ////////////////////////
 
-    const filters = ['Popularité','Date', 'Titre']
+const FILTERS = ['Popularité','Date', 'Titre']
+
+export default function Gallery({media, price}) {
 
 //////////// STATES ////////////////////////////
 
-    const [mainFilter, setMainFilter] = useState('Popularité')
+    const [mainFilter, setMainFilter] = useState(FILTERS[0])
     const [selectedPicture, setSelectedPicture] = useState(null)
     const {focusState} = useFocus()
-    console.log(focusState.element)
+    
 //////////// DERIVED STATE ////////////////////
 
-    const otherFilters = filters.filter(item => item !== mainFilter)
+    const otherFilters = useMemo(() => {
+        return FILTERS.filter(item => item !== mainFilter)
+    }, [mainFilter])
+
     const sortedMedia = useMemo(() => {
         return filterMedia(media, mainFilter)
     }, [media, mainFilter])

@@ -87,9 +87,9 @@ export default function Filters({ mainFilter, otherFilters, handleFilter }) {
                     aria-expanded={open}
                     aria-labelledby="filter-label"
                     onClick={() => setOpen(prev => !prev)}
-                    onKeyDown={(e) => {
-                        if (e.key === "ArrowDown") {
-                            e.preventDefault()
+                    onKeyDown={(event) => {
+                        if (event.key === "ArrowDown") {
+                            event.preventDefault()
                             setOpen(true)
                         }
                     }}

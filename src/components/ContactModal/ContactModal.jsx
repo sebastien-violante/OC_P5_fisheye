@@ -10,7 +10,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
 //// REFERENCES ////////////////////////////////////////
 
     // Mise en place des éléments de focus et focus initial
-    const refForm = useRef([]) // va chercher la référence 
+    const refForm = useRef() // va chercher la référence 
     const refFocusables = useRef([]) // permet de stocker les focusables
     
 /////  STATES /////////////////////////////////////////
@@ -53,9 +53,8 @@ export default function ContactModal({name, closeForm, formOpen}) {
 
     // Gestion des actions clavier 
     const handleKeyDown = (event) => {
-        const focusables = refFocusables.current
-        const first = focusables[0]
-        const last = focusables[focusables.length-1]
+        const first = refFocusables.current[0]
+        const last = refFocusables.current[refFocusables.current.length-1]
         
         handleKeyboard(event, { first, last, onEscape: closeForm })
     }
@@ -64,9 +63,8 @@ export default function ContactModal({name, closeForm, formOpen}) {
 
     useEffect(() => {
         if(!formOpen) return
-        const focusables = getFocusables(refForm)
-        refFocusables.current = focusables
-        if(focusables.length > 0) focusables[0].focus()
+        refFocusables.current = getFocusables(refForm)
+        if(refFocusables.current.length > 0) refFocusables.current[0].focus()
     },[formOpen])
 
 
