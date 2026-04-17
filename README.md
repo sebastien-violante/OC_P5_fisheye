@@ -2,20 +2,27 @@
 This project has been made with ❤️ by Sébastien VIOLANTE, as part of the React Application Developer course offered by Openclassroom. It is the fifth module of the course and aims to demonstrate the ability to build a complete website using Next.js, incorporating dynamic components and adhering to accessibility standards.
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-
 ## Getting Started
 
-First, run the development server:
+Before running the project :
 
 ```bash
+npm install
+
+then 
+
+npx prisma generate
+
+then 
+
+npx prisma db seed
+
+then 
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+
+## Open the project 
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

@@ -34,7 +34,7 @@ export default function MediaSticker({medium, openLightBox, updateLikes, likes})
 
     return (
         <figure className={styles.mediaWrapper}>
-            <button className={styles.btnImage} onClick={handleClick} aria-label="voir la photo ou la vidéo">
+            <button className={styles.btnImage} onClick={handleClick} aria-label={`{medium.title}, closeup view`}>
                 { !medium.video &&
                 <Image height={300} width={350} className={styles.image} src={`/pictures/${medium.image}`} alt={medium.title}/>
                 }
@@ -45,7 +45,7 @@ export default function MediaSticker({medium, openLightBox, updateLikes, likes})
                 }
             </button>
             <div className={styles.caption}>
-                <h2 className={styles.title}>{medium.title}</h2>
+                <h2 className={styles.title} tabIndex={0}>{medium.title}</h2>
                 <div className={styles.likes}>
                     <p className={styles.numberLikes}>{likes}</p>
                     <button className={styles.likesCta} onClick={() => toggleLike(medium.id)}><img className={styles.likeLogo} src="/logos/like.png" alt="likes"></img></button>

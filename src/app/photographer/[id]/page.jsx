@@ -18,11 +18,11 @@ export default async function Photographer({params}) {
             <section className={styles.banner}>
                 <article className={styles.ident}>
                     <h1 className={styles.name}>{photographer.name}</h1>
-                    <p className={styles.location}>{photographer.city}, {photographer.country}</p>
-                    <p className={styles.tagline}>{photographer.tagline}</p>
+                    <p tabIndex={0} className={styles.location}>{photographer.city}, {photographer.country}</p>
+                    <p tabIndex={0} className={styles.tagline}>{photographer.tagline}</p>
                 </article>
                 <ContactZone name={photographer.name} />
-                <Image height={200} width={200} className={styles.portrait} src={`/pictures/${photographer.portrait}`} alt={photographer.name}/>
+                <Image height={200} width={200} className={styles.portrait} src={`/pictures/${photographer.portrait}`} alt={`portrait de ${photographer.name}`}/>
             </section>
             {media ? <Gallery media={media} price={photographer.price}/> : <p>Désolé, {photographer.name} n’a encore rien publié !</p>}
         </>

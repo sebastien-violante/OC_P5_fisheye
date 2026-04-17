@@ -19,6 +19,7 @@
 
 .card .portrait {
     cursor: pointer;
+    display: inline-block;
 }
 
 .card .name {

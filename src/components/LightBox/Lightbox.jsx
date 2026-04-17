@@ -98,6 +98,7 @@ export default function LightBox({closeLightbox, picture, changePicture}) {
                     alt="image suivante" 
                     />
                 </button>
+                <h2 className={styles.caption}>{picture.title}</h2>
             </div>
         </div>
     )
