@@ -59,6 +59,15 @@ export default function ContactModal({name, closeForm, formOpen}) {
         handleKeyboard(event, { first, last, onEscape: closeForm })
     }
 
+    // Enlève l'erreur lors de la frappe dans l'input
+    const hideError = (event) => {
+        const name = event.target.name;
+        setErrors(prev => ({
+            ...prev,
+            [name]: null
+        }));
+    }
+
 //// EFFECTS ////////////////////////////////////////
 
     useEffect(() => {
@@ -96,6 +105,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
                             aria-describedby={errors.firstname ? "firstname-error" : undefined}
                             value={formData.firstname}
                             onChange={handleChange}
+                            onKeyDown={hideError}
                             required
                         ></input>
                         {errors.firstname && (
@@ -114,6 +124,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
                             aria-describedby={errors.name ? "name-error" : undefined}
                             value={formData.name}
                             onChange={handleChange}
+                            onKeyDown={hideError}
                             required
                         ></input>
                         {errors.name && (
@@ -132,6 +143,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
                             aria-describedby={errors.email ? "email-error" : undefined}
                             value={formData.email}
                             onChange={handleChange}
+                            onKeyDown={hideError}
                             required
                         ></input>
                         {errors.email && (
@@ -150,6 +162,7 @@ export default function ContactModal({name, closeForm, formOpen}) {
                             aria-describedby={errors.message ? "message-error" : undefined}
                             value={formData.message}
                             onChange={handleChange}
+                            onKeyDown={hideError}
                             required
                         ></textarea>
                         {errors.message && (
