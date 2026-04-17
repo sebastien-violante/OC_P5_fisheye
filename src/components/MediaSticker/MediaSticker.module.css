@@ -25,29 +25,25 @@
 .mediaWrapper .title {
     font-weight: 400;
     font-size: 1.5em;
+    max-width: 300px;
     color: var(--secondaryTextRed);
-     white-space: nowrap;     
+    white-space: nowrap;     
     overflow: hidden;       
     text-overflow: ellipsis;  
 }
 
-.mediaWrapper .likes {
+.mediaWrapper .likesCta {
     display: flex;
     align-items: center;
     gap: 6px;
-}
-
-.mediaWrapper .numberLikes {
-    font-weight: 500;
-    font-size: 1.5em;
-    color: var(--secondaryTextRed);
-}
-
-.mediaWrapper .likesCta {
     cursor: pointer;
     background: none;
     border: none;
     width: 17.5px;
+    font-weight: 500;
+    font-size: 1.5em;
+    color: var(--secondaryTextRed);
+    transform: translate(-35px);
 }
 .mediaWrapper .likeLogo {
     width: 17.5px;

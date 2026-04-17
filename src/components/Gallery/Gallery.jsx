@@ -89,6 +89,7 @@ export default function Gallery({media, price}) {
     
     return (
         <>
+            <GlobalLikes likes={likeState.totalLikes} price={price}/>
             {selectedPicture && <LightboxPortal closeLightbox={closeLightbox} picture={selectedPicture} changePicture={changePicture} />}
             <section className={styles.filter}>
                 <Filters mainFilter={mainFilter} otherFilters={otherFilters} handleFilter={handleFilter}/>
@@ -96,7 +97,6 @@ export default function Gallery({media, price}) {
             <section className={styles.mediaContainer}>
                 {sortedMedia.map(medium => <MediaSticker key={medium.image} medium={medium} openLightBox={openLightBox} updateLikes={updateLikes} likes={likeState.likesById[medium.id]}/>)}
             </section>
-            <GlobalLikes likes={likeState.totalLikes} price={price}/>
         </>    
     )
 }
